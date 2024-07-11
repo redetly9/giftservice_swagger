@@ -5406,6 +5406,17 @@ paths:
         200:
           description: OK
 
+  /order-detail/{uid}:
+    get:
+      summary: Получить позиции заказа, платежи, журнал операций  по UID
+      x-exegesis-controller: order.controller
+      operationId: getOneOrderDetail
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
   /certificate-detail/{uid}:
     get:
       summary: Получить позиции заказа, платежи, журнал операций  по UID
