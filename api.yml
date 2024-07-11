@@ -4384,166 +4384,81 @@ paths:
 
   /cert-transactions:
     post:
-      summary: Создание транзакции
-      x-exegesis-controller: cert-transactions.controller
-      operationId: createTransaction
-      parameters:
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                _classname:
-                  type: string
-                  example: "TopupTransactions"
-                certUid:
-                  type: string
-                  example: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-                amount:
-                  type: object
-                  properties:
-                    amount:
-                      type: number
-                      example: 550000
-                    currency:
-                      type: string
-                      example: "rub"
-                    precision:
-                      type: integer
-                      example: 0
-                positions:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      example: "3bbedd90-db33-4a59-9c32-d29d1456d012"
-                    price:
-                      type: number
-                      example: 5000
-                    title:
-                      type: string
-                      example: "Оплата сертификата - "
-                    taxRate:
-                      type: string
-                      example: "ru_nds_na"
-                    quantity:
-                      type: integer
-                      example: 1
-                    paymentType:
-                      type: string
-                      example: "fullPrepayment"
-                    subjectType:
-                      type: string
-                      example: "service"
-                direction:
-                  type: string
-                  example: "incoming"
-                partnerUid:
-                  type: string
-                  nullable: true
-                  example: null
-                meta:
-                  type: string
-                  nullable: true
-                  example: null
-      responses:
-        200:
-          description: OK
-          content:
-            application/json:
-              schema:
+    summary: Создание транзакции
+    x-exegesis-controller: cert-transactions.controller
+    operationId: createTransaction
+    requestBody:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              _classname:
+                type: string
+                example: "TopupTransactions"
+                description: |
+                  - `TopupTransactions`: 'incoming' - Транзакции пополнения сертификата.
+                  - `WriteOffTransactions`: 'outgoing' - Транзакции списания средств с сертификата.
+                  - `ReturnWriteOffTransactions`: 'incoming' - Транзакции возврата средств на сертификат после списания.
+                  - `RefundTransactions`: 'incoming' - Транзакции возврата средств.
+                  - `FinalSettlementTransactions`: 'outgoing' - Транзакции окончательных расчетов.
+              certUid:
+                type: string
+                example: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
+              amount:
                 type: object
                 properties:
-                  _classname:
-                    type: string
-                    example: "TopupTransactions"
-                  certUid:
-                    type: string
-                    example: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
                   amount:
-                    type: object
-                    properties:
-                      amount:
-                        type: number
-                        example: 550000
-                      currency:
-                        type: string
-                        example: "rub"
-                      precision:
-                        type: integer
-                        example: 0
-                  positions:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                        example: "3bbedd90-db33-4a59-9c32-d29d1456d012"
-                      price:
-                        type: number
-                        example: 5000
-                      title:
-                        type: string
-                        example: "Оплата сертификата - a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-                      taxRate:
-                        type: string
-                        example: "ru_nds_na"
-                      quantity:
-                        type: integer
-                        example: 1
-                      paymentType:
-                        type: string
-                        example: "fullPrepayment"
-                      subjectType:
-                        type: string
-                        example: "service"
-                  direction:
+                    type: number
+                    example: 550000
+                  currency:
                     type: string
-                    example: "incoming"
-                  partnerUid:
+                    example: "rub"
+                  precision:
+                    type: integer
+                    example: 0
+              positions:
+                type: object
+                properties:
+                  id:
                     type: string
-                    nullable: true
-                    example: null
-                  meta:
+                    example: "3bbedd90-db33-4a59-9c32-d29d1456d012"
+                  price:
+                    type: number
+                    example: 5000
+                  title:
                     type: string
-                    nullable: true
-                    example: null
-                  updatedAt:
+                    example: "Оплата сертификата - a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
+                  taxRate:
                     type: string
-                    format: date-time
-                    example: "2024-07-05T13:50:54.010Z"
-                  uid:
+                    example: "ru_nds_na"
+                  quantity:
+                    type: integer
+                    example: 1
+                  paymentType:
                     type: string
-                    example: "2f6508c8-2a99-46d7-95c6-331894411030"
-                  createdAt:
+                    example: "fullPrepayment"
+                  subjectType:
                     type: string
-                    format: date-time
-                    example: "2024-07-05T13:50:54.010Z"
-              examples:
-                example1:
-                  summary: Пример успешного ответа
-                  value:
-                    _classname: "TopupTransactions"
-                    certUid: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-                    amount:
-                      amount: 550000
-                      currency: "rub"
-                      precision: 0
-                    positions:
-                      id: "3bbedd90-db33-4a59-9c32-d29d1456d012"
-                      price: 5000
-                      title: "Оплата сертификата - a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-                      taxRate: "ru_nds_na"
-                      quantity: 1
-                      paymentType: "fullPrepayment"
-                      subjectType: "service"
-                    direction: "incoming"
-                    partnerUid: null
-                    meta: null
-                    updatedAt: "2024-07-05T13:50:54.010Z"
-                    uid: "2f6508c8-2a99-46d7-95c6-331894411030"
-                    createdAt: "2024-07-05T13:50:54.010Z"
+                    example: "service"
+              direction:
+                type: string
+                example: "incoming"
+              partnerUid:
+                type: string
+                nullable: true
+                example: null
+              meta:
+                type: object
+                nullable: true
+                additionalProperties:
+                  type: string
+                example: null
+    responses:
+      200:
+        description: OK
+
     get:
       summary: Получить все транзакции
       x-exegesis-controller: cert-transactions.controller
