@@ -8,7 +8,7 @@ info:
     name: Коммерческая
 
 servers:
-  - url: /api/admin/v1
+  - url: https://gift-service.null.zapomni.systems/api/admin/v1
 
 paths:
   /country:
