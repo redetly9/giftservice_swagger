@@ -4384,84 +4384,89 @@ paths:
 
   /cert-transactions:
     post:
-    summary: Создание транзакции
-    x-exegesis-controller: cert-transactions.controller
-    operationId: createTransaction
-    requestBody:
-      required: false
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              _classname:
-                type: string
-                example: "WriteOffTransactions"
-                description: |
-                  - `TopupTransactions`: 'incoming' - Транзакции пополнения сертификата.
-                  - `WriteOffTransactions`: 'outgoing' - Транзакции списания средств с сертификата.
-                  - `ReturnWriteOffTransactions`: 'incoming' - Транзакции возврата средств на сертификат после списания.
-                  - `RefundTransactions`: 'incoming' - Транзакции возврата средств.
-                  - `FinalSettlementTransactions`: 'outgoing' - Транзакции окончательных расчетов.
-              certUid:
-                type: string
-                example: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-              amount:
-                type: object
-                properties:
-                  amount:
-                    type: number
-                    example: 500000
-                  currency:
-                    type: string
-                    example: "rub"
-                  precision:
-                    type: integer
-                    example: 0
-              positions:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: "3bbedd90-db33-4a59-9c32-d29d1456d012"
-                  price:
-                    type: number
-                    example: 5000
-                  title:
-                    type: string
-                    example: "Оплата сертификата - a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
-                  taxRate:
-                    type: string
-                    example: "ru_nds_na"
-                  quantity:
-                    type: integer
-                    example: 1
-                  paymentType:
-                    type: string
-                    example: "fullPrepayment"
-                  subjectType:
-                    type: string
-                    example: "service"
-              direction:
-                type: string
-                example: "outgoing"
-              partnerUid:
-                type: string
-                nullable: true
-                example: null
-              meta:
-                type: object
-                nullable: true
-                additionalProperties:
-                  type: string
-                example: null
-    responses:
-      200:
-        description: OK
+      summary: Создание транзакции
+      x-exegesis-controller: cert-transactions.controller
+      operationId: createTransaction
+      requestBody:
+        required: false
         content:
           application/json:
             schema:
               type: object
+              properties:
+                _classname:
+                  type: string
+                  example: "WriteOffTransactions"
+                  description: |
+                    - `TopupTransactions`: 'incoming' - Транзакции пополнения сертификата.
+                    - `WriteOffTransactions`: 'outgoing' - Транзакции списания средств с сертификата.
+                    - `ReturnWriteOffTransactions`: 'incoming' - Транзакции возврата средств на сертификат после списания.
+                    - `RefundTransactions`: 'incoming' - Транзакции возврата средств.
+                    - `FinalSettlementTransactions`: 'outgoing' - Транзакции окончательных расчетов.
+                certUid:
+                  type: string
+                  example: "uuid сертификата"
+                amount:
+                  type: object
+                  properties:
+                    amount:
+                      type: number
+                      example: 500000
+                    currency:
+                      type: string
+                      example: "rub"
+                    precision:
+                      type: integer
+                      example: 0
+                positions:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "id"
+                    price:
+                      type: number
+                      example: 5000
+                    title:
+                      type: string
+                      example: "Оплата сертификата"
+                    taxRate:
+                      type: string
+                      example: "ru_nds_na"
+                    quantity:
+                      type: integer
+                      example: 1
+                    paymentType:
+                      type: string
+                      example: "fullPrepayment"
+                    subjectType:
+                      type: string
+                      example: "service"
+                direction:
+                  type: string
+                  example: "outgoing"
+                partnerUid:
+                  type: string
+                  nullable: true
+                  example: null
+                meta:
+                  type: object
+                  nullable: true
+                  additionalProperties:
+                    type: string
+                  example: null
+                usageType:
+                  type: string
+                  nullable: true
+                  example: "Ресторан"
+                  description: "Тип использования: Ресторан, Витрина, Гашение"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
     get:
       summary: Получить все транзакции
       x-exegesis-controller: cert-transactions.controller
