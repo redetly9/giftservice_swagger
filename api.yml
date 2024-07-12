@@ -4387,7 +4387,6 @@ paths:
     summary: Создание транзакции
     x-exegesis-controller: cert-transactions.controller
     operationId: createTransaction
-    parameters:
     requestBody:
       required: false
       content:
@@ -4406,7 +4405,7 @@ paths:
                   - `FinalSettlementTransactions`: 'outgoing' - Транзакции окончательных расчетов.
               certUid:
                 type: string
-                example: "uuid сертификата"
+                example: "a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
               amount:
                 type: object
                 properties:
@@ -4424,13 +4423,13 @@ paths:
                 properties:
                   id:
                     type: string
-                    example: "id"
+                    example: "3bbedd90-db33-4a59-9c32-d29d1456d012"
                   price:
                     type: number
                     example: 5000
                   title:
                     type: string
-                    example: "Оплата сертификата"
+                    example: "Оплата сертификата - a8dd3b04-8f4f-499d-ad95-f95b5faa9d67"
                   taxRate:
                     type: string
                     example: "ru_nds_na"
