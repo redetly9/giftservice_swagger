@@ -4429,7 +4429,7 @@ paths:
                       example: 5000
                     title:
                       type: string
-                      example: "Оплата сертификата"
+                      example: "Оплата заказа в Ресторане"
                     taxRate:
                       type: string
                       example: "ru_nds_na"
@@ -4451,10 +4451,189 @@ paths:
                   example: null
                 meta:
                   type: object
-                  nullable: true
-                  additionalProperties:
-                    type: string
-                  example: null
+                  properties:
+                    Certificate:
+                      type: object
+                      properties:
+                        _uuid:
+                          type: string
+                    Legal:
+                      type: object
+                      properties:
+                        _uuid:
+                          type: string
+                        address:
+                          type: string
+                        created_at:
+                          type: string
+                          format: date-time
+                        is_active:
+                          type: integer
+                        name:
+                          type: object
+                          properties:
+                            ru:
+                              type: string
+                        tin:
+                          type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                    Partner:
+                      type: object
+                      properties:
+                        _classname:
+                          type: string
+                        _uuid:
+                          type: string
+                        cert_usage_settings:
+                          type: object
+                        city_uuid:
+                          type: string
+                        country_uuid:
+                          type: string
+                          nullable: true
+                        created_at:
+                          type: string
+                          format: date-time
+                        is_active:
+                          type: integer
+                        legal_uuid:
+                          type: string
+                        name:
+                          type: object
+                          properties:
+                            ru:
+                              type: string
+                        settings:
+                          type: object
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                        updated_at:
+                          type: string
+                          format: date-time
+                        user_friendly_url:
+                          type: string
+                          nullable: true
+                        uuid_e:
+                          type: string
+                        uuid_o:
+                          type: string
+                    Receipt:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                          name:
+                            type: string
+                          price:
+                            type: number
+                          quantity:
+                            type: integer
+                          supplier_inn:
+                            type: string
+                          supplier_name:
+                            type: string
+                          vat:
+                            type: string
+                    fiscal_document:
+                      type: object
+                      properties:
+                        change:
+                          type: number
+                        companyINN:
+                          type: string
+                        companyName:
+                          type: string
+                        content:
+                          type: object
+                          properties:
+                            checkClose:
+                              type: object
+                              properties:
+                                payments:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      amount:
+                                        type: number
+                                      type:
+                                        type: integer
+                                taxationSystem:
+                                  type: integer
+                            customerContact:
+                              type: string
+                            positions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  agentType:
+                                    type: integer
+                                  paymentMethodType:
+                                    type: integer
+                                  paymentSubjectType:
+                                    type: integer
+                                  price:
+                                    type: number
+                                  quantity:
+                                    type: integer
+                                  supplierINN:
+                                    type: string
+                                  supplierInfo:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  tax:
+                                    type: integer
+                                  text:
+                                    type: string
+                            type:
+                              type: integer
+                        deviceRN:
+                          type: string
+                        deviceSN:
+                          type: string
+                        documentIndex:
+                          type: integer
+                        documentNumber:
+                          type: integer
+                        fnsWebsite:
+                          type: string
+                        fp:
+                          type: string
+                        fsNumber:
+                          type: string
+                        id:
+                          type: string
+                        ofdName:
+                          type: string
+                        ofdWebsite:
+                          type: string
+                        ofdinn:
+                          type: string
+                        processedAt:
+                          type: string
+                          format: date-time
+                        processedAtTz:
+                          type: string
+                          format: date-time
+                        shiftNumber:
+                          type: integer
+                    operator_id:
+                      type: string
+                    order_full_amount:
+                      type: number
+                    ordernum:
+                      type: string
+                    pos_id:
+                      type: string
                 usageType:
                   type: string
                   nullable: true
