@@ -3316,8 +3316,6 @@ paths:
       operationId: certificateValidation
       parameters:
         - $ref: '#/components/parameters/uid'
-      servers:
-        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         200:
           description: OK
@@ -3336,8 +3334,6 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
-      servers:
-        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
@@ -3348,8 +3344,6 @@ paths:
       operationId: certificateUnlock
       parameters:
         - $ref: '#/components/parameters/uid'
-      servers:
-        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         204:
           description: OK
@@ -3368,8 +3362,6 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
-      servers:
-        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
@@ -3388,8 +3380,6 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
-      servers:
-        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
