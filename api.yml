@@ -1479,12 +1479,18 @@ paths:
       operationId: createDesign
       parameters:
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
               type: object
-              nullable: true
+              properties:
+                textColor:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
       responses:
         200:
           description: OK
@@ -1536,12 +1542,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/uid'
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
               type: object
-              nullable: true
+              properties:
+                textColor:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
       responses:
         200:
           description: OK
@@ -3296,6 +3308,91 @@ paths:
                       payment_method: null
                       updated_at: null
                     logs: {}
+
+  /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/validation:
+    get:
+      summary: Валидация сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certificateValidation
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
+      responses:
+        200:
+          description: OK
+
+  /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/lock:
+    put:
+      summary: Блокировка сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certificateLock
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
+      responses:
+        201:
+          description: OK
+
+    delete:
+      summary: Разблокировка сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certificateUnlock
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
+      responses:
+        204:
+          description: OK
+
+  /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/used:
+    put:
+      summary: Подтверждение факта использования сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certificateUsed
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
+      responses:
+        201:
+          description: OK
+
+  /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/refund:
+    put:
+      summary: Возврат сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certificateRefund
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
+      responses:
+        201:
+          description: OK
 
 components:
   parameters:
