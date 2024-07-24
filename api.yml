@@ -3309,6 +3309,28 @@ paths:
                       updated_at: null
                     logs: {}
 
+  /payment/{uid}:
+    get:
+      summary: Получение платежа
+      x-exegesis-controller: order.controller
+      operationId: getOnePayment
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
+  /receipt/{uid}:
+    get:
+      summary: Получение чека
+      x-exegesis-controller: order.controller
+      operationId: getOneReceipt
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
   /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/validation:
     get:
       summary: Валидация сертификата
@@ -3316,6 +3338,8 @@ paths:
       operationId: certificateValidation
       parameters:
         - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         200:
           description: OK
@@ -3334,6 +3358,8 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
@@ -3344,6 +3370,8 @@ paths:
       operationId: certificateUnlock
       parameters:
         - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         204:
           description: OK
@@ -3362,6 +3390,8 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
@@ -3380,6 +3410,8 @@ paths:
               nullable: true
       parameters:
         - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/v1
       responses:
         201:
           description: OK
