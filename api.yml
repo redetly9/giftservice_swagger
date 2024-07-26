@@ -398,6 +398,18 @@ paths:
                   type: number
                 logo:
                   type: string
+                currency:
+                  type: string
+                nominalModifier:
+                  type: string
+                activationDeadline:
+                  format: date-time
+                fiscalSign:
+                  type: string
+                advanceRedemptionDays:
+                  type: number
+                certificateType:
+                  type: string
       responses:
         200:
           description: OK
