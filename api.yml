@@ -3343,6 +3343,24 @@ paths:
         200:
           description: OK
 
+  /generate/pdf/certificate/{uid}:
+    post:
+      summary: Генерация PDF
+      x-exegesis-controller: certificate.controller
+      operationId: generateCertificatePdfByUid
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        201:
+          description: OK
+
   /deadbeef-9fb5-45f3-b586-64c14c16c040/certificate/{uid}/validation:
     get:
       summary: Валидация сертификата
