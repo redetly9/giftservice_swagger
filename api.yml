@@ -3343,6 +3343,24 @@ paths:
         200:
           description: OK
 
+  /transactions/certificate/{uid}:
+    get:
+      summary: Получение транзакции сертификата
+      x-exegesis-controller: cert-transactions.controller
+      operationId: getOneTransactionByCertUid
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        201:
+          description: OK
+
   /generate/pdf/certificate/{uid}:
     post:
       summary: Генерация PDF
