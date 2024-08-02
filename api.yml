@@ -358,6 +358,53 @@ paths:
         200:
           description: OK
 
+  /cert_tag_type:
+    get:
+      summary: Получение видов тегов
+      x-exegesis-controller: tag.controller
+      operationId: getAllClassTag
+      parameters:
+        - name: page
+          in: query
+          description: Номер страницы
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: count
+          in: query
+          description: Количество элементов на странице
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: conditions
+          in: query
+          description: Условия фильтрации
+          required: false
+          schema:
+            type: object
+      responses:
+        200:
+          description: OK
+
+  /partner:
+    post:
+      summary: Создание партнера
+      x-exegesis-controller: partner.controller
+      operationId: createPartner
+      parameters:
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
   /cert-config:
     post:
       summary: Создание конфигурации
