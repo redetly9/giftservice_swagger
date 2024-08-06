@@ -3511,6 +3511,66 @@ paths:
         201:
           description: OK
 
+  /partner/horeca/{uid}/cert_data:
+    post:
+      summary: Информация о сертификате
+      x-exegesis-controller: certificate.controller
+      operationId: certificateData
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/gift/v2
+      responses:
+        201:
+          description: OK
+
+  /partner/horeca/{uid}/cert_pay:
+    post:
+      summary: Списание средств с сертификата
+      x-exegesis-controller: certificate.controller
+      operationId: certPay
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/gift/v2
+      responses:
+        201:
+          description: OK
+
+  /partner/horeca/{uid}/cert_refund:
+    post:
+      summary: Возврат средств
+      x-exegesis-controller: certificate.controller
+      operationId: certRefund
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      servers:
+        - url: https://gift-service.null.zapomni.systems/api/gift/v2
+      responses:
+        201:
+          description: OK
+
 components:
   parameters:
     uid:
