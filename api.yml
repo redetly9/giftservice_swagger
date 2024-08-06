@@ -388,12 +388,359 @@ paths:
         200:
           description: OK
 
+  /legal:
+    post:
+      summary: Создание юрид.инфо
+      x-exegesis-controller: legal.controller
+      operationId: createLegal
+      parameters:
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    get:
+      summary: Получить все юрид.инфо
+      x-exegesis-controller: legal.controller
+      operationId: getAllLegal
+      parameters:
+      - name: page
+        in: query
+        description: Номер страницы
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: count
+        in: query
+        description: Количество элементов на странице
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: conditions
+        in: query
+        description: Условия фильтрации
+        required: false
+        schema:
+          type: object
+      responses:
+        200:
+          description: OK
+
+  /legal/{uid}:
+    get:
+      summary: Получить одну юрид.инфо по UID
+      x-exegesis-controller: legal.controller
+      operationId: getOneLegal
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
+    put:
+      summary: Изменить одну юрид.инфо по UID
+      x-exegesis-controller: legal.controller
+      operationId: editLegalByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    delete:
+      summary: Удалить одну юрид.инфо по UID
+      x-exegesis-controller: legal.controller
+      operationId: removeLegalByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+  /country:
+    post:
+      summary: Создание страны
+      x-exegesis-controller: country.controller
+      operationId: createCountry
+      parameters:
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    get:
+      summary: Получить все страны
+      x-exegesis-controller: country.controller
+      operationId: getAllCountry
+      parameters:
+      - name: page
+        in: query
+        description: Номер страницы
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: count
+        in: query
+        description: Количество элементов на странице
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: conditions
+        in: query
+        description: Условия фильтрации
+        required: false
+        schema:
+          type: object
+      responses:
+        200:
+          description: OK
+
+  /country/{uid}:
+    get:
+      summary: Получить одну страну по UID
+      x-exegesis-controller: country.controller
+      operationId: getOneCountry
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
+    put:
+      summary: Изменить одну страну по UID
+      x-exegesis-controller: country.controller
+      operationId: editCountryByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    delete:
+      summary: Удалить одну страну по UID
+      x-exegesis-controller: country.controller
+      operationId: removeCountryByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+  /city:
+    post:
+      summary: Создание города
+      x-exegesis-controller: city.controller
+      operationId: createCity
+      parameters:
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    get:
+      summary: Получить все города
+      x-exegesis-controller: city.controller
+      operationId: getAllCity
+      parameters:
+      - name: page
+        in: query
+        description: Номер страницы
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: count
+        in: query
+        description: Количество элементов на странице
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: conditions
+        in: query
+        description: Условия фильтрации
+        required: false
+        schema:
+          type: object
+      responses:
+        200:
+          description: OK
+
+  /city/{uid}:
+    get:
+      summary: Получить один город по UID
+      x-exegesis-controller: city.controller
+      operationId: getOneCity
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
+    put:
+      summary: Изменить один город по UID
+      x-exegesis-controller: city.controller
+      operationId: editCityByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    delete:
+      summary: Удалить один город по UID
+      x-exegesis-controller: city.controller
+      operationId: removeCityByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
   /partner:
     post:
       summary: Создание партнера
       x-exegesis-controller: partner.controller
       operationId: createPartner
       parameters:
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    get:
+        summary: Получить всех партнеров
+        x-exegesis-controller: partner.controller
+        operationId: getAllPartner
+        parameters:
+        - name: page
+          in: query
+          description: Номер страницы
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: count
+          in: query
+          description: Количество элементов на странице
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: conditions
+          in: query
+          description: Условия фильтрации
+          required: false
+          schema:
+            type: object
+        responses:
+          200:
+            description: OK
+
+  /partner/{uid}:
+    get:
+      summary: Получить одного партнера по UID
+      x-exegesis-controller: partner.controller
+      operationId: getOnePartner
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      responses:
+        200:
+          description: OK
+
+    put:
+      summary: Изменить одного партнера по UID
+      x-exegesis-controller: partner.controller
+      operationId: editPartnerByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: true
+      responses:
+        200:
+          description: OK
+
+    delete:
+      summary: Удалить одного партнера по UID
+      x-exegesis-controller: partner.controller
+      operationId: removePartnerByUid
+      parameters:
+        - $ref: '#/components/parameters/uid'
       requestBody:
         required: false
         content:
