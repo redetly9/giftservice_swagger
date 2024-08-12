@@ -784,6 +784,24 @@ paths:
                   type: array
                   items:
                     type: number
+                restrictions_event_uuids:
+                  type: array
+                  items:
+                    type: string
+                restrictions_schedule_uuids:
+                  type: array
+                  items:
+                    type: string
+                restrictions_spot_uuids:
+                  type: array
+                  items:
+                    type: string
+                partner_uuids:
+                  type: array
+                  items:
+                    type: string
+                restaurant_gift_type:
+                  type: string
                 tagIds:
                   type: array
                   items:
@@ -1849,6 +1867,24 @@ paths:
                   type: array
                   items:
                     type: number
+                restrictions_event_uuids:
+                  type: array
+                  items:
+                    type: string
+                restrictions_schedule_uuids:
+                  type: array
+                  items:
+                    type: string
+                restrictions_spot_uuids:
+                  type: array
+                  items:
+                    type: string
+                partner_uuids:
+                  type: array
+                  items:
+                    type: string
+                restaurant_gift_type:
+                  type: string
                 tagIds:
                   type: array
                   items:
