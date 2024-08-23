@@ -767,7 +767,7 @@ paths:
                 name:
                   type: string
                 description:
-                  type: string
+                  type: object
                 shortName:
                   type: string
                 user_friendly_url:
